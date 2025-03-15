@@ -28,6 +28,17 @@ app.use(express.static(path.join(__dirname, './client/build')));
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
+app.get('/', (req, res) => {
+  res.send('Welcome to the API');
+});
+app.use((req, res, next) => {
+  res.status(404).send("Sorry, can't find that!");
+});
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 //rest api
 app.get('*', function(req, res) {
