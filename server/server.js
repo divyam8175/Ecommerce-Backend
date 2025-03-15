@@ -15,7 +15,7 @@ dotenv.config();
 const __filename=fileURLToPath(import.meta.url); 
 const __dirname=path.dirname(__filename);
 //databse config
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 connectDB();
 
