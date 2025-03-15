@@ -9,11 +9,13 @@ import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from 'url';
+import mongoose from 'mongoose';
 //configure env
 dotenv.config();
 const __filename=fileURLToPath(import.meta.url); 
 const __dirname=path.dirname(__filename);
 //databse config
+const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 connectDB();
 
