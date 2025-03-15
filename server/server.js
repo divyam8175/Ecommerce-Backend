@@ -14,6 +14,7 @@ dotenv.config();
 const __filename=fileURLToPath(import.meta.url); 
 const __dirname=path.dirname(__filename);
 //databse config
+mongoose.set('strictQuery', false);
 connectDB();
 
 //rest object
@@ -35,7 +36,8 @@ app.use((req, res, next) => {
   res.status(404).send("Sorry, can't find that!");
 });
 app.use(express.static(path.join(__dirname, 'client', 'build')));
-
+const favicon = require('serve-favicon');
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
