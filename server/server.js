@@ -10,6 +10,9 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
+import favicon from 'serve-favicon';
+
+
 //configure env
 dotenv.config();
 const __filename=fileURLToPath(import.meta.url); 
@@ -38,7 +41,6 @@ app.use((req, res, next) => {
   res.status(404).send("Sorry, can't find that!");
 });
 app.use(express.static(path.join(__dirname, 'client', 'build')));
-const favicon = require('serve-favicon');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));

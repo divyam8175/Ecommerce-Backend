@@ -28,6 +28,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "react-icons": "^4.7.1",
+    "serve-favicon": "^2.5.0",
     "slugify": "^1.6.5"
   }
 }
